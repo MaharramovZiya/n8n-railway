@@ -1,10 +1,11 @@
 FROM n8nio/n8n:latest
 
-# İş kataloqu
 WORKDIR /data
 
-# Lazımlı npm paketləri (əgər external scriptlərdə istifadə olunacaqsa)
 RUN npm install cheerio axios moment
 
-# Əsas n8n prosesi başlasın
+ENV N8N_PORT=8080
+
+EXPOSE 8080
+
 CMD ["n8n"]
